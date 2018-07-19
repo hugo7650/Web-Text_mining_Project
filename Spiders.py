@@ -78,16 +78,6 @@ class DataGovSpider():
         mybrowser.quit()
         time.sleep(2)
 
-from splinter import Browser
-from html2text import HTML2Text
-import time
-
-"""
-    This is a tool file that helps the main program to craw data from the sepcific website.
-    And the tools are aimed for this assignment. It is not garanteed that they can be applied
-to other purposes.
-"""
-
 class UsnewsSpider():
     '''
         This object process the crawling jobs, in specific for this assignment.
