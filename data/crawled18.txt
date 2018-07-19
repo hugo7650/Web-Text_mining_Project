@@ -1,7 +1,0 @@
-FAFSA Application Volume Data June 19, 2013 By admin Get reports on the number
-of Free Applications for Federal Student Aid (FAFSAs) processed. One report
-provides the number of applications by the applicant’s state of legal
-residence and the other report provides the number of applications by
-postsecondary institution, as listed on the applicant’s FAFSA. View this
-Dataset
-

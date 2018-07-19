@@ -1,8 +1,0 @@
-Digging Deeper into ED Open Data: New ED Data Inventory December 4, 2013 By
-Data.gov If you love data, and especially open data, there’s a good chance you
-also care about quality metadata. We have some exciting news: the Department
-of Education launched a new ED Data Inventory! The Inventory is available as a
-searchable website and a JSON file. It contains descriptions about the data
-the Department collected as part of program and grant activities as well as
-statistical data collections. Read more on Homeroom Blog
-

@@ -1,13 +1,13 @@
 import os
 
-from Spiders import DataGovSpider
+from Spiders import *
 from Prasers import MainRanker
 
 if __name__ == '__main__':
 
     # crawl pages from the given website
-    spider = DataGovSpider()
-    spider.start()
+    spider = USnewsSpider()
+    spider.start('./data/USnews')
 
     #ranker = MainRanker('./data/crawled', 29, True)
     #print(ranker.simple_BOW_rank())
