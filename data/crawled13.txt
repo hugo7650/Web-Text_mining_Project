@@ -1,0 +1,13 @@
+FAFSA MyStudentData November 22, 2013 By Data.gov Interested in having access
+to your Free Application for Federal Student Aid (FAFSA) data? Now you can
+with MyStudentData. The MyStudentData download function was developed as part
+of the Education Data Initiative, which is designed to make your education-
+related data available, machine-readable, and accessible to you while
+protecting your personal privacy. For instance, on FAFSA.gov you can use
+MyStudentData to download certain data elements from your FAFSA into a plain-
+text file. So what can you do with this data? You can use online tools, mobile
+apps, and other resources to upload your data and receive customized
+information relating to your educational and financial aid goals.
+MyStudentData download is just one way of accessing your FAFSA data. For more
+information about MyStudentData, visit StudentAid.gov. View this Dataset
+

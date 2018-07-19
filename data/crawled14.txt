@@ -1,0 +1,8 @@
+Welcome to Education Data Community June 28, 2013 By admin This web site
+serves as a central guide for education data resources including high-value
+data sets, data visualization tools, resources for the classroom, applications
+created from open data and more. These datasets have been gathered from
+various agencies to provide detailed information on the state of education on
+all levels, from cradle to career and beyond. Check back frequently because
+the site will be updated as more datasets and tools become available.
+

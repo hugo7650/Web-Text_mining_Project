@@ -1,0 +1,61 @@
+Games for Learning Summit: Expanding the Conversation Between Educators and
+Game Designers April 20, 2015 By Antero Garcia and Chad Sansing Cross-posted
+from Medium. Whether it is using quick warm-ups like Game of Phones or highly
+immersive experiences with Mario Kart and Minecraft, digital games can be
+powerful motivators for learning. It is with this in mind that we are eager to
+expand the conversation between teachers and game developers. The U.S.
+Department of Education and Games for Change, with support from the
+Entertainment Software Association, will host the Games for Learning Summit
+April 21 at the 2015 Games for Change (G4C) Festival. With more than 250
+participants, including nationally recognized educators, the designers of some
+of today’s most popular video games, and members of the U.S. Department of
+Education, we are hopeful that this event will encourage collaboration focused
+on the learning needs and interests of young people in the U.S. Collaborating
+and designing with the learning interests of young people in mind requires a
+shift in thinking from all stakeholders. Based on the conversations we’ve had
+with teachers and students, there is a hunger for better games that support
+better learning today. With the recent release of The Ed Tech Developer’s
+Guide, the pathways for developing for impact are clearer than ever. At the
+beginning of the school year, the two of us (along with a handful of amazing
+teachers) spent a weekend enmeshed with teams of game designers at the White
+House Education Game Jam. Focused on games that could provide powerful
+learning resources for schools, we have continued to be optimistic about the
+results that such collaboration can yield. A recent game-design project in
+Chad’s classroom highlights some of what game-based learning has to offer us
+as teachers and students. Inspired by games ranging from Geometry Dash to
+Sissy’s Magical Ponycorn Adventure, students working in teams of four
+completed their own Scratch games like Wasteland Adventures, World
+Championship Soccer, and Sanic Pong. Each ‘studio’ of four students
+brainstormed genres, tropes, and mechanics for games they wanted to create and
+play. Then they got to work. Programmers started to code. Artists worked with
+platforms like Piskel and Google Draw. Sound Engineers scoured freesound.org
+and Sound Bible for sound effects and composed theme music with Online
+Sequencer. Student project managers kept everyone working and talking with one
+another through shared docs and folders. The project helped students develop
+media literacy, soft skills like collaboration, and technical skills like
+managing an online repository of A/V assets, to say nothing of the logic,
+math, reading, and writing skills they demonstrated in navigating tutorials,
+communicating online, and building their games. Students even discussed gender
+norms in character design and traditional gaming narratives. Game-based
+learning isn’t about consuming a product to pick up a fact or two; it’s about
+learning to analyze or produce pieces of interactive media that require
+critical thinking, persistence, and problem-solving to master, critique, play,
+and make. Now, with several White House Education Game Jam alumni and friends
+coming to the Games for Learning Summit, we are excited about focusing on
+articulating the thinking, dialogue, and spaces for collaboration between
+developers and educators. We’re looking forward to continuing conversation far
+beyond the Games and Learning Summit. We need to work together to answer
+questions like: How can we help one another make and use games to fulfill
+educational needs in the classroom? How can we put the best interactive
+content in the hands of students for the most meaningful educational
+experiences — those focused on discovery and decision-making? Let’s figure out
+game-changing ways to harness the power of play for the work of learning in
+schools. Join the conversation on Tuesday by watching the live stream and
+Tweeting your contributions with #G4L15. Antero Garcia (@anterobot) is a
+Teaching Ambassador Fellow at the U.S. Department of Education and teaches
+pre-service teachers as an Assistant Professor at Colorado State University.
+Chad Sansing (@chadsansing) teaches technology and project-based learning at
+the BETA Academy in Staunton, Virginia. By Antero Garcia, Teaching Ambassador
+Fellow at the U.S. Department of Education, and Chad Sansing, BETA Academy in
+Staunton, Virginia
+

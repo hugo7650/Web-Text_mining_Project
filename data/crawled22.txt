@@ -1,0 +1,83 @@
+Data in the Classroom May 30, 2013 By admin Education Resources The Department
+of Education’s “Federal Resources for Educational Excellence” project is a
+wealth of information. Selected offerings for teachers, parents and students
+include: Helping Your Child Learn Math: activities for parents to help
+children (K-5th grade) have fun learning geometry, algebra, measurement,
+statistics, probability and other subjects (Department of Education). Project
+Links: web-based modules for teaching advanced math methods, probability and
+statistics, differential equations, discrete mathematics, linear systems, and
+calculus (Rensselaer Polytechnic Institute/ National Science Foundation).
+Collected Learning Units in Mathematics: more than 200 instructional units in
+arithmetic, algebra, calculus, data analysis, fractions, geometry, number
+theory, pre-algebra, pre-calculus, probability and statistics (National
+Security Agency). Journal of Online Mathematics and its Applications:
+articles, learning modules, “mathlets,” reviews of online resources, and a
+developers’ area (Mathematical Association of America/National Science
+Foundation). Statistics Online Computational Resource: online aids (including
+interactive graphs and calculators ) for probability and statistics education,
+technology-based instruction, and statistical computing (UCLA, supported by
+multiple agencies). Teaching with Data Simulations: activities to help
+students visualize abstract statistical concepts and see dynamic processes
+behind the gathering, analysis, and interpretation of statistics (Science
+Education Resource Center at Carleton College/National Science Foundation).
+Data in the Classroom: curriculum guides for using real scientific data to
+investigate earth processes. (National Oceanic and Atmospheric
+Administration). Other government sites offer the following: The National
+Center for Education Statistics Kids’ Zone, includes data-related activities
+for kids. Fedstats.gov has a kids’ page called “Map Stats for Kids” that
+includes activities related to statistics and geography. This site also
+includes a list of federal agencies with statistics-related pages for kids.
+The National Agricultural Statistics Service offers K-12 lesson plans. Other
+resources: PBS Teachers website. A search for “data” on the site resulted in
+262 resources, including offline activities, interactive activities, videos
+and lesson plans related to data collection and analysis for K-12 students and
+their teachers. The National Science Teachers association website includes an
+extensive (100+) assembly of free resources for science teachers: Resources
+range from lesson plans to web-based activities to videos and more, on all
+aspects of science. Many include mathematics as well. Microsoft in Education
+offers lesson plans for a variety of subjects, including math, science and
+social studies, all of which include lesson plans that involve data, include
+creating a generation-gap survey and tracking and analyzing the resulting
+data; researching acid rain their state; and charting the effects of
+earthquakes on buildings. Teaching Ideas is a website for teachers working
+with children ages 5-11 created by U.K. primary school teacher Mark Warner,
+and includes a page with resources for teaching about databases and
+spreadsheets. Infant Resources: This site is a compendium of teaching
+resources for elementary schoolchildren assembled by U.K.-based Claire Cook
+(who provides no biographical information). The “Data Handling” page includes
+real-world games and lessons. A Canadian site,“Math Lessons Today”, includes
+games and worksheets for elementary schoolchildren. Sites for Teachers, lists
+sites for all K-12 levels on all topics, ranked by popularity, the site
+claims. Watch Know lists 158 videos for kids in its “Probability and
+Statistics” category, including 37 under “data analysis.” K-12 Education
+Data.gov is also working with the International Science and Engineering Fair
+to bring Data.gov as a research tool and resource to K-12 students across the
+globe as they create, innovate, and learn about science through their research
+and in their schools. At this year’s International Fair in Los Angeles on May
+8-13, Data.gov will be making resources available for kids to explore, learn,
+and analyze government data, and encourage them to create apps and views of
+that data. This year Data.gov also continues their sponsorship of the USA
+Science and Engineering Festival. At last year’s event on the Mall in
+Washington, D.C. 5,000 students explored datasets ranging from health to
+energy through Data.gov apps and mashups that made learning fun. Universities
+Data.gov in the Classroom highlights 11 universities and colleges across
+America that are using the information and lessons of Data.gov to help future
+generations learn about government data, how to use it, and help create the
+apps that enable others to do so as well. Harvard University, Dr. Karim
+Lakhani, Data.gov: Matching Government Data with Rapid Innovation, Harvard
+Business Case Study New York Law School, Professor Beth Noveck, Democracy
+Design Workshop Do Tank, ORGPedia: Corporate Intelligence and Accountability
+for the 21st Century and Economic Impact of Open Gov Data New York University,
+Professor Christina Goodness, Information and Technology for Socio-political
+Change Oregon State University, Dr. Dawn Wright, Geographic Information
+Systems and Science Rensselaer Polytechnic Institute, Professor Peter Fox,
+Data Science Rensselaer Polytechnic Institute, Professor Jim Hendler, Linking
+Open Government Data (tutorials, apps, and mashups) Syracuse University,
+Professor Ines Mergel, Government 2.0 Temple University, Steven L. Johnson,
+Data and Knowledge Management University of California, Berkeley, Professor
+Yee, Mixing and Remixing Information University of Michigan, Library, Access
+to Governmental Datasets at Data.gov Yale University, Dr. Laura DeNardis and
+Dr. Nicholas Bramble, Access to Knowledge Shout Out To Teachers Using Data.gov
+in the classroom? Created a cool app? Developed a lesson plan? Tell us your
+story, let us feature your class, let us come to your school!
+
