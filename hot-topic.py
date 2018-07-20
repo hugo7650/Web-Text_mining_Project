@@ -5,7 +5,11 @@ from Prasers import MainRanker
 
 if __name__ == '__main__':
 
-    # crawl pages from the given website
+    # crawl pages from data.gov
+    spider = DataGovSpider()
+    spider.start('./data/DataGov')
+
+    # crawl pages from USnews
     spider = USnewsSpider()
     spider.start('./data/USnews')
 

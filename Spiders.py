@@ -126,10 +126,6 @@ class USnewsSpider():
             # No matter the extracting is sucessfull, move to the nex tag.
             div_index += 1
 
-
-
-        print("crawl from one main page, move to the next table of pages...")
-
         return self.pages
 
     def extract_from_page(self, url, filename_main)->bool:
