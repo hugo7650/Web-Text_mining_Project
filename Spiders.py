@@ -1,7 +1,11 @@
-from splinter import Browser
-from selenium.webdriver.common.keys import Keys
-from html2text import HTML2Text
-import time
+# coding: utf-8
+# BeautifulSoup Demo
+
+#import packages
+import urllib.request
+import json
+from lxml import etree
+import threading
 
 """
     This is a tool file that helps the main program to craw data from the sepcific website.
@@ -13,14 +17,15 @@ class DataGovSpider():
     '''
         This object process the crawling jobs, in specific for this assignment.
     '''
-    def __init__(self, num_pages= 40):
+    def __init__(self, num_pages= 10):
         # Setup urls for each page
         initial_url = 'https://www.data.gov/education/page/'
-        self.start_urls = [(initial_url + str(i) + '/') for i in range(1, num_pages)]
-        self.browser = Browser('chrome')
+        self.start_urls = [(initial_url + str(i)) for i in range(1, num_pages)]
+        self.headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.68 Safari/537.36'}
         # use pages attribute to record how many file has been written, in order to sepcify the
         # exact file name.
         self.pages = 0
+        self.xpath = '//*[@id="main"]/div[2]/article'
 
     def start(self, filename_main= './data/crawled'):
         '''
@@ -29,68 +34,41 @@ class DataGovSpider():
             And this method will return the number pages it wrote to document, index
         start from 0 end (include) at pages-1.
         '''
-        xpath_root = '//*[@id="main"]/div[2]/article'
-        xpath_secondary = '/header/h2/a'
         for tbl_url in self.start_urls:
             print('crawling from table of content')
-            self.browser.visit(tbl_url)
-            time.sleep(1)
+            req = urllib.request.Request(url=tbl_url,headers=self.headers)
+            try:
+                data = urllib.request.urlopen(req).read()
+                treedata = etree.HTML(data)
+                urls = treedata.xpath('//*[@id="main"]/div[2]/article/header/h2/a/@href')
 
-            urls = []
-            # get the number of links in the table of content page
-            num_links = len(self.browser.find_by_xpath(xpath_root))
-            for i in range(1, num_links+1):
-                url = self.browser\
-                    .find_by_xpath(xpath_root + '[' + str(i) + ']' + xpath_secondary)
-                # store the url for each page in case changing the browser behavior
-                if url == []:
-                    print('no url found in this tag')
-                else:
-                    urls.append(url['href'])
+                tpool=[]
+                for url in urls:
+                    url='https://www.data.gov/education/'+url
+                    t=threading.Thread(target=extract_from_page,args=(url, self.xpath, filename_main,))
+                    tpool.append(t)
+                    t.start()
+                for t in tpool:
+                    t.join()
 
-            # invoking each function to read and extract the texts
-            for url in urls:
-                self.extract_from_page(url, filename_main)
-
-            print("crawl from one main page, move to the next table of pages...")
+                print("crawl from one main page, move to the next table of pages...")
+            except: continue
 
         return self.pages
-
-    def extract_from_page(self, url, filename_main):
-        '''
-            By finding the html file inside the article, then write to a txt file.
-        '''
-        mybrowser = Browser('chrome')
-        mybrowser.visit(url)# + '?printable=1')
-        article = mybrowser.find_by_xpath('//*[@id="main"]/div[2]/article')
-        if article == []:
-            mybrowser.quit()
-            return
-        print('acquire page and prepare to write to file ' + str(self.pages))
-        print('through url: ' + url)
-
-        # setup the html2text object
-        h2t = HTML2Text()
-        h2t.ignore_links = True
-        h2t.bypass_tables = False
-        with open(filename_main + str(self.pages) + '.txt', 'w', encoding='utf-8') as f:
-            f.write(h2t.handle(article.value))
-            self.pages += 1
-        mybrowser.quit()
-        time.sleep(2)
 
 class USnewsSpider():
     '''
         This object process the crawling jobs, in specific for this assignment.
     '''
-    def __init__(self, num_pages= 100):
+    def __init__(self, num_pages= 1000):
         # Setup urls for each page
-        self.initial_url = 'https://www.usnews.com/topics/subjects/k_12_education'
-        self.num_pages = num_pages
-        self.browser = Browser('chrome')
+        initial_url = 'https://www.usnews.com/topics/subjects/k_12_education?offset='
+        self.start_urls = [(initial_url + str(i) + '&renderer=json') for i in range(0, num_pages,10)]
+        self.headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.68 Safari/537.36','Referer': 'https://www.usnews.com/topics/subjects/k_12_education','Cookie': 'akacd_www=2177452799~rv=70~id=a685edab78689288983e0930f489ef8f; s_cc=true; s_fid=683CD3DA45EA94BF-064C7333AA4EF013; ak_bmsc=378C63BB70F6A3AA683A031A06A6155917C60B1D7E7100009109525BE736C947~pl99dtjX0d3bBpxt4lOpPDjRnh/H/6aFh7NkU2hJl4Q6sI4YwQLmh+9xOEVBvIjdgF3UlgRwprmlRVl3fzFxfMfqIAjS3CF/b8/0PU3BM9zU5sFzsedwYjVw07SmXBIlrE6nqlBVTyILAwreJT43chzuOyseZak/OUHqZg/V3Sq7C+NZod9izygb8M7fh9+B3nVT3fM3ITMx0dF/GZX7bXk3mb2+H7988heArAriv/dhw=; s_sq=%5B%5BB%5D%5D; JSESSIONID=FB845546D48DA3F2E34CB9860644AA3B; bm_sv=742B7A18A60B689BAAF7E10685DDE2F8~w9B4LppRedGuQPwCahR642gP0SiOJe4PggytgIKI7cipMI+c1Y0FQ/1zKJes4lIUvqKE53yRQkL0pxGeTbH0nplLQUxhm6dJrXzlNR8gwHW0sn2Bbifh3gwEgPvzMSes35BW27BgPby2o/U7UItnof4jQyBZOpUZyjbp6zegTEk=; utag_main=v_id:0164b18c7a56000d4533ba37d27703072003506a00bd0$_sn:4$_ss:0$_st:1532111805992$_pn:3%3Bexp-session$ses_id:1532109940545%3Bexp-session'}
         # use pages attribute to record how many file has been written, in order to sepcify the
         # exact file name.
         self.pages = 0
+        self.xpath = '//*[@id="app"]/div/div/div[2]/div[3]/div[1]'
 
     def start(self, filename_main= './data/crawled'):
         '''
@@ -99,56 +77,89 @@ class USnewsSpider():
             And this method will return the number pages it wrote to document, index
         start from 0 end (include) at pages-1.
         '''
-        xpath_root = '//*[@id="00000142-9228-d1f0-a5c6-b2fdbbdb0000"]/div/div'
-        xpath_secondary = '/div[1]/h3/a'
-        self.browser.visit(self.initial_url)
+        for tbl_url in self.start_urls:
+            print('crawling from table of content')
+            req = urllib.request.Request(url=tbl_url,headers=self.headers)
+            data = json.loads(urllib.request.urlopen(req).read())
 
-        # This method is aimed at need to scroll down the page in order to acquire more pieces
-        div_index = 1
-        pages_crawled = 0
-        items = self.browser.find_by_xpath(xpath_root)
-        while pages_crawled < self.num_pages:
-            # Check if it is needed to scroll down the pages or scroll down the page
-            if len(items) < div_index:
-                print("scrolling down the page...")
-                active_web_element = self.browser.driver.switch_to_active_element()
-                active_web_element.send_keys(Keys.PAGE_DOWN)
-                active_web_element.send_keys(Keys.PAGE_DOWN)
-                time.sleep(5)
-                items = self.browser.find_by_xpath(xpath_root)
-                continue
+            urls=[]
+            for j in data['stories']:
+                urls.append(j['permalink'])
 
-            # Now assume the content is enough
-            tag_a = self.browser.find_by_xpath(
-                xpath_root + '[' + str(div_index) + ']' + xpath_secondary)
-            if (not tag_a == []):
-                self.extract_from_page(tag_a["href"], filename_main)
-            # No matter the extracting is sucessfull, move to the nex tag.
-            div_index += 1
+            tpool=[]
+            for url in urls:
+                t=threading.Thread(target=extract_from_page,args=(self, url, self.xpath, filename_main,))
+                tpool.append(t)
+                t.start()
+            for t in tpool:
+                t.join()
+
+            print("crawl from one main page, move to the next table of pages...")
 
         return self.pages
 
-    def extract_from_page(self, url, filename_main)->bool:
-        '''
-            By finding the html file inside the article, then write to a txt file.
-        '''
-        mybrowser = Browser('chrome')
-        mybrowser.visit(url)# + '?printable=1')
-        article = mybrowser.find_by_xpath('//*[@id="app"]/div/div/div[2]/div[3]/div[1]')
-        if article == []:
-            mybrowser.quit()
-            return False
-        print('Acquire page and prepare to write to file ' + str(self.pages))
-        print('\tthrough url: ' + url)
+class TheGuardianSpider():
+    '''
+        This object process the crawling jobs, in specific for this assignment.
+    '''
+    def __init__(self, num_pages= 10):
+        # Setup urls for each page
+        initial_url = 'https://www.theguardian.com/education'
+        self.start_urls = [(initial_url)]
+        self.headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.68 Safari/537.36'}
+        # use pages attribute to record how many file has been written, in order to sepcify the
+        # exact file name.
+        self.pages = 0
+        self.xpath = '//*[@id="article"]/div[2]/div/div[1]/div/p'
 
-        # setup the html2text object
-        h2t = HTML2Text()
-        h2t.ignore_links = True
-        h2t.bypass_tables = False
-        with open(filename_main + str(self.pages) + '.txt', 'w', encoding='utf-8') as f:
-            f.write(h2t.handle(article.value))
-            self.pages += 1
-        mybrowser.quit()
-        print('Done crawling from one page...')
-        time.sleep(2)
-        return True
+    def start(self, filename_main= './data/crawled'):
+        '''
+            In this method it will invoke the sub macro to write each page into each
+        following files, with file name: filename_main + str(i) + '.txt'
+            And this method will return the number pages it wrote to document, index
+        start from 0 end (include) at pages-1.
+        '''
+        for tbl_url in self.start_urls:
+            print('crawling from table of content')
+            req = urllib.request.Request(url=tbl_url,headers=self.headers)
+            data = urllib.request.urlopen(req).read().decode('utf-8')
+            treedata = etree.HTML(data)
+            idlist = ['education', 'news', 'students', 'in-depth', 'teacher-network', 'global-view', 'opinion']
+            urls = []
+            for i in idlist:
+                urls+=treedata.xpath('//*[@id="'+i+'"]/div/div[2]/div[1]/ul/li/div/div/a/@href')
+
+            tpool=[]
+            for url in urls:
+                t=threading.Thread(target=extract_from_page,args=(url, self.xpath, filename_main,))
+                tpool.append(t)
+                t.start()
+            for t in tpool:
+                t.join()
+
+            print("crawl from one main page, move to the next table of pages...")
+
+        return self.pages
+
+def extract_from_page(self, url, xpath, filename_main):
+    '''
+        By finding the html file inside the article, then write to a txt file.
+    '''
+    if url == '':
+        return False
+    req = urllib.request.Request(url=url,headers=self.headers)
+    data = urllib.request.urlopen(req).read().decode('utf-8')
+    treedata = etree.HTML(data)
+    article = treedata.xpath(xpath)
+    if article == []:
+        return False
+    print('Acquire page and prepare to write to file ' + str(self.pages))
+    #print(article)
+    print('\tthrough url: ' + url)
+
+    with open(filename_main + str(self.pages) + '.txt', 'w') as f:
+        for i in article:
+            f.write(i.xpath('string(.)'))
+        self.pages += 1
+    print('Done crawling from one page...')
+    return True
